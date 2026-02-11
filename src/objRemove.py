@@ -19,31 +19,31 @@ class ObjectRemove():
 
 
     def run(self):
-        # Step 1: Read in and preprocess the image
+      
         images = self.read_and_preprocess_image()
 
-        # Step 2: Perform segmentation
+      
         out = self.perform_segmentation(images)
 
-        # Step 3: User interaction: Clicking
+       
         ref_points = self.click_me()
 
-        # Step 4: Generate mask based on user input
+      
         mask = self.generate_mask(images,out, ref_points)
 
-        # Step 5: Threshold the mask
+       
         thresholded_mask = self.threshold_mask(mask)
 
-        # Step 6: Mask the original image
+       
         masked_image = self.mask_original_image(images[0], thresholded_mask)
 
-        # Step 7: Inpainting
+        
         output = self.perform_inpainting(masked_image)
         
-        # Return the final inpainted image
+       
         return output
 
-    # Separate methods for each step
+    
     def read_and_preprocess_image(self):
         print('Reading in image...')
         images = self.preprocess_image()
@@ -183,28 +183,19 @@ class ObjectRemove():
                 ref_point.append((x, y))
                 cv2.rectangle(img, (ref_point[0], ref_point[1]), (ref_point[2], ref_point[3]), (0, 0, 255), 2)
                 cv2.imshow("image", img)
-
-
         img = self.image_orig[0].permute(1,2,0).numpy()
         img = cv2.cvtColor(img, cv2.COLOR_RGB2BGR)
         clone = img.copy()
-
         cv2.namedWindow("image")
-
         cv2.setMouseCallback('image', click)
-
         while True:
             cv2.imshow("image", img)
-            key = cv2.waitKey(1) & 0xFF
-            
+            key = cv2.waitKey(1) & 0xFF  
             if key == ord("r"):
-                img = clone.copy()
-            
-            elif key == 13:  # Enter key
+                img = clone.copy()  
+            elif key == 13: 
                 break
         cv2.destroyAllWindows()
-
-        
         return ref_point
     
     def inpaint(self):

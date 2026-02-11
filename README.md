@@ -3,7 +3,7 @@ Object Removal From Image using DeepLearning.
 
 ## Run
 
-- The DeepFillv2 model needs pretrained weights from [here](https://drive.google.com/u/0/uc?id=1L63oBNVgz7xSb_3hGbUdkYW1IuRgMkCa&export=download) and put put the weights pth file in [src/models/](/src/models/).
+-The DeepFillv2 model needs pretrained weights from [here](https://drive.google.com/u/0/uc?id=1L63oBNVgz7xSb_3hGbUdkYW1IuRgMkCa&export=download) and put put the weights pth file in [src/models/](/src/models/).
 
 - To install requirements for the project.
 
