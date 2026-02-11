@@ -173,7 +173,7 @@ ObjectRemoval-main/
 
 Yu, Jiahui, et al.  
 **"Free-Form Image Inpainting with Gated Convolution."**  
-ICCV 2019.
+ICCV 2019-2020.
 
 ---
 
